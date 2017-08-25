@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="navbar.css" />
+  <script src="shrinking.js"></script>
+  <script>
+    function init() {
+      window.addEventListener('scroll', function(e) {
+        var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+          shrinkOn = 300,
+          header = document.querySelector("header");
+        if (distanceY > shrinkOn) {
+          classie.add(header, "smaller");
+        } else {
+          if (classie.has(header, "smaller")) {
+            classie.remove(header, "smaller");
+          }
+        }
+      });
+    }
+    window.onload = init();
+  </script>
+  <title>Fixed Header Demo</title>
+</head>
+
+<body>
+
+  <div id="wrapper">
+
+    <header>
+      <div class="container clearfix">
+        <h1 id="logo">
+            Logo
+        </h1>
+        <nav>
+          <a href="">Home</a>
+          <a href="">Article</a>
+          <a href="">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <!-- /header -->
+
+    <div id="main">
+      <div id="content">
+        <section>
+          <div class="container">
+            <h1>Header Resize On Scroll with Animations</h1>
+            <p></p>
+          </div>
+        </section>
+        <section class="color">
+          <div class="container">
+            <h1>Demo for Fixed Header</h1>
+            <p></p>
+            <p></p>
+          </div>
+        </section>
+        <section>
+          <div class="container">
+            <h1>段落</h1>
+            <p></p>
+            <p></p>
+          </div>
+        </section>
+        <section class="color">
+          <div class="container">
+            <h1>段落</h1>
+            <p></p>
+            <p></p>
+          </div>
+        </section>
+        <section>
+          <div class="container">
+            <h1>段落</h1>
+            <p></p>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- #main -->
+
+
+    <footer>
+      <div id="info-bar">
+        <div class="container clearfix">
+          <span class="all-tutorials"><a href="#">← Back</a></span>
+          <span class="back-to-tutorial"><a href="#">Main</a></span>
+        </div>
+      </div>
+      <!-- /#top-bar -->
+    </footer>
+    <!-- /footer -->
+
+  </div>
+  <!-- /#wrapper -->
+</body>
+
+</html>
