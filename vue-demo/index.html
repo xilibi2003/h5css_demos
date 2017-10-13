@@ -1,0 +1,206 @@
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://unpkg.com/vue">
+    </script>
+
+    <style>
+        code,
+        pre {
+            font-family: "Roboto Mono", Monaco, courier, monospace;
+            font-size: 0.8em;
+            background-color: #f8f8f8;
+            -webkit-font-smoothing: initial;
+            -moz-osx-font-smoothing: initial;
+        }
+        
+        code {
+            color: #e96900;
+            padding: 3px 5px;
+            margin: 0 2px;
+            border-radius: 2px;
+            white-space: nowrap;
+        }
+        
+        em {
+            color: #7f8c8d;
+        }
+        
+        p {
+            word-spacing: 0.05em;
+        }
+        
+        pre {
+            color: #525252;
+        }
+        
+        pre .function .keyword,
+        pre .constant {
+            color: #0092db;
+        }
+        
+        pre .tag,
+        pre .tag .title,
+        pre .tex .special {
+            color: #2973b7;
+        }
+        
+        pre .tag .value,
+        pre .string,
+        pre .prompt {
+            color: #42b983;
+        }
+        
+        .highlight {
+            overflow-x: auto;
+            background-color: #f8f8f8;
+            padding: 0.4em 0 0;
+            line-height: 1.1em;
+            border-radius: 2px;
+            position: relative;
+        }
+        
+        .highlight .code pre {
+            padding: 1.2em 1.4em;
+            line-height: 1.5em;
+            margin: 0;
+        }
+        
+        .highlight .code .line {
+            min-height: 1.5em;
+        }
+        
+        .highlight.html .code:before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: #ccc;
+            text-align: right;
+            font-size: 0.75em;
+            padding: 5px 10px 0;
+            line-height: 15px;
+            height: 15px;
+            font-weight: 600;
+        }
+        
+        .highlight.html .code:before {
+            content: "HTML";
+        }
+    </style>
+
+
+    <script>
+    </script>
+
+</head>
+
+<body>
+    <figure class="highlight html">
+        <div class="code">
+            <pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">  &#123;&#123; message &#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre>
+        </div>
+    </figure>
+
+    <div id="app">
+        {{ message }}
+    </div>
+
+    <div id="app-2">
+        <span v-bind:title="message">
+          鼠标悬停几秒钟查看此处动态绑定的提示信息！
+        </span>
+    </div>
+
+    <div id="app-4">
+        <ol>
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ol>
+    </div>
+
+    <div id="app-5">
+        <div>{{ message }}</div>
+        <button v-on:click="hellowork">clickme</p>
+    </div>
+
+
+    <div id="app-7">
+        <ol>
+            <todo-item v-for="item in grocerylist"
+            v-bind:todo="item"
+            v-bind:key="item.id">
+            </todo-item>
+        </ol>
+
+    </div>
+    <ol>
+        <todo-item>
+
+        </todo-item>
+    </ol>
+
+</body>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!'
+        }
+    });
+
+    var app2 = new Vue({
+        el: '#app-2',
+        data: {
+            message: '页面加载于 ' + new Date().toLocaleString()
+        }
+    });
+
+    var app4 = new Vue({
+        el: "#app-4",
+        data: {
+            todos: [{
+                text: 'abc',
+            }, {
+                text: 'bcd'
+            }]
+        }
+    });
+
+    var app5 = new Vue({
+        el: "#app-5",
+        data: {
+            message: "hello"
+        },
+        methods: {
+            hellowork: function() {
+                app.message = "hello work";
+            }
+        }
+    }); 
+
+
+    Vue.component('todo-item', {
+            props: ['todo'],
+            template: '<li>{{ todo.text }}</li>'
+        });
+
+    var app7 = new Vue({
+        el:"#app-7",
+        data: {
+            grocerylist: [
+                {
+                    id: 0, 
+                    text: "ABCB"},
+                 {
+                     id: 1,
+                     text: "CDEF"}]
+        }
+    })
+
+
+</script>
+
+</html>
